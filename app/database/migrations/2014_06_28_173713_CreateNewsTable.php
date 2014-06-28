@@ -11,8 +11,13 @@ class CreateNewsTable extends Migration {
 	 * @return void
 	 */
 	public function up()
-	{
-		//
+	{	//cree la table news
+		Schema::create('news', function(Blueprint $table){
+			$table->increments('id');
+			$table->text('content');
+			$table->string('slug');
+			$table->timestamps(); //cree les tables created_at, updated_at
+		});
 	}
 
 	/**
@@ -22,7 +27,9 @@ class CreateNewsTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		//detruit la table news
+		Schema::drop('news');
+		
 	}
 
 }
