@@ -17,8 +17,8 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		$news = News::paginate(5);
-		return View::make('news.index');
+		$news = News::get();
+		return View::make('news.index', array('news' => $news));
 	}
 
 }
